@@ -1,0 +1,20 @@
+appdirs==1.4.3
+asgiref==3.2.7
+beautifulsoup4==4.9.0
+certifi==2020.4.5.1
+distlib==0.3.0
+# Editable install with no version control (Django==3.0.6)
+-e /Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages
+django-bootstrap4==1.1.1
+django-filter==2.2.0
+filelock==3.0.12
+pipenv==2018.11.26
+pytz==2019.3
+shell==1.0.1
+six==1.14.0
+soupsieve==2.0
+sqlparse==0.3.1
+virtualenv==20.0.16
+virtualenv-clone==0.5.4
+django==2.2.7
+gunicorn

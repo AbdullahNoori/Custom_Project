@@ -25,7 +25,7 @@ SECRET_KEY = 'zf*kp#k3+ha-xlxwxn=gak0l2qf2pnjndjyn#jvo0x8nyof_qm'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', 'sportsblog.herokuapp.com']
 
 
 # Application definition
@@ -123,6 +123,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 
 # wiki app settings
