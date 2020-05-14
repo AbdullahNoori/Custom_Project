@@ -77,38 +77,35 @@ class DeleteBlogView(CreateView):
       return HttpResponseRedirect(reverse('blog-list-page'))
 
 
-# class UpdateBlogView(CreateView):
-  # def get(self, request, slug):
+class UpdateBlogView(CreateView):
+  def get(self, request, slug):
     
-  #   blog = Blog.objects.get(slug=slug)
+    blog = Blog.objects.get(slug=slug)
 
-  #   form = BlogForm(instance=blog)
+    form = BlogForm(instance=blog)
 
-  #   return render(request, 'new.html', {
-  #     'form': form
-  #   })
+    return render(request, 'new.html', {
+      'form': form
+    })
 
-  # def post(self, request, slug):
-  #   blog = Blog.objects.get(slug=slug)
-  #   if request.method == "POST":
-  #     form = BlogForm(request.POST)
+  def post(self, request, slug):
+    blog = Blog.objects.get(slug=slug)
+    if request.method == "POST":
+      form = BlogForm(request.POST)
       
-  #     if form.is_valid():
+      if form.is_valid():
               
-  #       blog.title  = request.POST.get('title', '')
-  #       blog.slug = request.POST.get('slug', '')
-  #       blog.content = request.POST.get('content', '')
-  #       blog.modified = request.POST.get('modified', '')
-  #       blog.save()
+        blog.title  = request.POST.get('title', '')
+        blog.slug = request.POST.get('slug', '')
+        blog.content = request.POST.get('content', '')
+        blog.modified = request.POST.get('modified', '')
+        blog.save()
 
-  #       # return HttpResponseRedirect(reverse('blog-details-page', kwargs={'slug': blog.slug}))
-  #       return render(request, 'page.html', {
-  #         'page': blog
-  #       })
+        return HttpResponseRedirect(reverse('blog-details-page', kwargs={'slug': blog.slug}))
 
-  #   else:
-  #     form = BlogForm()
+    else:
+      form = BlogForm()
 
-  #   context = {'form': form}
+    context = {'form': form}
 
-  #   return render(request, 'new.html', context)
+    return render(request, 'new.html', context)
