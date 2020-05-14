@@ -4,6 +4,7 @@ from django.urls import path, include
 
 
 urlpatterns = [
+    
     path('', PageListView.as_view(), name='blog-list-page'),
     path('<str:slug>/', PageDetailView.as_view(), name='blog-details-page'),
     path('new/blog/', CreateBlogView.as_view(), name='new-blog'),
