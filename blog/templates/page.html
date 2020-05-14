@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="row">
+    <div class="col m-4">
+      <h3>{{ page.title }} <small class="text-muted">Last updated {{ page.modified|date:"SHORT_DATETIME_FORMAT" }} by <b>{{ page.author.username }}</b></small></h3>
+      <hr>
+      <p>{{ page.content|linebreaksbr }}</p>
+
+      <hr>
+      <form action="/delete/blog/{{page.slug}}" class="form-container" id="" method="post">{% csrf_token %}
+        <div class="order_button">
+          <button type="submit" class="btn btn-danger btn-lg" onclick="">Delete</button>
+        </div>
+      </form>
+      <br>
+      <!-- <form action="/update/blog/{{page.slug}}" class="form-container" id="" method="post">{% csrf_token %}
+        <div class="order_button">
+          <button type="submit" class="btn btn-success btn-lg" onclick="">Update</button>
+        </div>
+      </form> -->
+      <hr>
+      <a href="{% url 'blog-list-page' %}">Back to List</a>
+    </div>
+  </div>
+{% endblock %}

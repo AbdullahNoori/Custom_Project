@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h3>Blogs {% if pages %}<small class="text-muted">({{ pages|length }} Page{{ pages|length|pluralize:"s" }})</small>{% endif %}</h3>
+  <hr>
+  {% if pages %}
+    <div class="card-columns">
+      {% for page in pages %}
+        <div class="card mb-3">
+          <h5 class="card-header ">{{ page.title }}</h5>
+          <div class="card-body border-dark">
+            <p class="card-text text-dark">
+              {{ page.content|truncatewords_html:30 }}
+              <hr>
+              <div class="text-right"><a href="{% url 'blog-details-page' page.slug %}" title="Read More">Read More</a></div>
+          </div>
+          <div class="card-footer">
+            <small class="text-muted">Last updated {{ page.modified|date:"SHORT_DATETIME_FORMAT" }} by <b>{{ page.author.username }}</b></small>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  {% else %}
+    <div class="alert alert-primary" role="alert">No pages to display.</div>
+  {% endif %}
+{% endblock %}
+
