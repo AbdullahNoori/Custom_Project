@@ -24,6 +24,7 @@ class Blog(models.Model):
     modified = models.DateTimeField(auto_now=True,
                                     help_text="The date and time this blog was updated. Automatically generated when the model updates.")
 
+
     def __str__(self):
         return self.title
 
